@@ -1,0 +1,83 @@
+# Setup
+version_name: PAME_pascal
+out_dir: "./work_dir/"
+data_max: 999999  
+# Database
+train_db_name: PASCALContext
+val_db_name: PASCALContext
+trBatch: 3
+valBatch: 1
+nworkers: 6
+ignore_index: 255
+H: 32
+W: 32
+save_inter: 4998
+save_after: 35000
+# Optimizer and scheduler
+intermediate_supervision: False
+val_interval: 4998
+epochs: 999999
+max_iter: 40000
+optimizer: adam
+optimizer_kwargs:
+   lr: 0.00002
+   weight_decay: 0.000001
+scheduler: poly
+grad_clip_param: {'max_norm': 10, 'norm_type': 2}
+
+parameter_analysis: False
+
+overstage: 0  
+
+# 可视化
+pred_vis: False # 所有预测结果的可视化
+
+backbone_stage3_vis: False
+
+head_vis_tsne: False  # t-SNE 参数
+head_vis_pca: True # pca 参数
+head_vis_pca_reverse: False
+
+backbone_stage3_vis: False
+
+promptB: True
+promptC: True
+MoE_B: True
+MoE_C: True
+SSM: True
+BASELINE: False
+TaskConv: True
+LocalConv: False
+Scan: h # s h z
+
+dataset_vis: False
+
+# Model
+model: PAME
+backbone: vitL
+head:  conv
+final_embed_dim: 1024  #640
+backbone_dim: 1024
+
+rank_list:  [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16]
+spe_rank: 64
+topk: 9
+pre_softmax: False
+dstate: 64
+task_dictionary:
+   include_semseg: True
+   include_human_parts: True
+   include_sal: True
+   include_edge: True
+   include_normals: True
+   edge_w: 0.95
+
+# Loss kwargs
+loss_kwargs:
+   loss_weights:
+       semseg: 1.0
+       human_parts: 2.0
+       sal: 5.0
+       edge: 50.0
+       normals: 10.0
+       load_balancing: 0.0001
