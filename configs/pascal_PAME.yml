@@ -5,7 +5,7 @@ data_max: 999999
 # Database
 train_db_name: PASCALContext
 val_db_name: PASCALContext
-trBatch: 3
+trBatch: 6
 valBatch: 1
 nworkers: 6
 ignore_index: 255
