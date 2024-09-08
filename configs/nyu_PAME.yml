@@ -1,0 +1,80 @@
+# Setup
+version_name: nyu_PAME
+out_dir: "./work_dir/"
+data_max: 9999
+# Database
+train_db_name: NYUD
+val_db_name: NYUD
+trBatch: 6
+valBatch: 1
+nworkers: 6
+ignore_index: 255
+H: 28
+W: 36
+save_inter: 795
+save_after: 10000
+# Optimizer and scheduler
+intermediate_supervision: False
+val_interval: 795
+epochs: 999999
+max_iter: 40000
+optimizer: adam
+optimizer_kwargs:
+   lr: 0.00001
+   weight_decay: 1.e-6
+scheduler: poly
+grad_clip_param: {'max_norm': 10, 'norm_type': 2}
+ignore_invalid_area_depth: True
+
+overstage: 0
+
+promptB: True
+promptC: True
+MoE_B: True
+MoE_C: True
+SSM: True
+BASELINE: False
+
+TaskConv: True
+LocalConv: False
+
+parameter_analysis: False
+
+# 可视化
+pred_vis: False # 所有预测结果的可视化
+
+head_vis_tsne: False  # t-SNE 参数
+head_vis_pca: False # pca 参数
+head_vis_pca_reverse: False
+
+backbone_stage3_vis: False  # backbone 出来的特征可视化
+
+Scan: h
+
+# Model
+model: PAME
+backbone: vitL
+head:  conv
+final_embed_dim: 768 
+backbone_dim: 768
+rank_list:  [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16]
+spe_rank: 64
+topk: 9
+pre_softmax: True
+dstate: 16
+# Tasks
+task_dictionary:
+   include_semseg: True
+   include_depth: True
+   include_edge: True
+   include_normals: True
+   edge_w: 0.88
+
+# Loss kwargs
+loss_kwargs:
+   loss_weights:
+       semseg: 1.0
+       depth: 1.0
+       normals: 10
+       edge: 50.0
+       load_balancing: 0.0005
