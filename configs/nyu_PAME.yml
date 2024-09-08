@@ -5,7 +5,7 @@ data_max: 9999
 # Database
 train_db_name: NYUD
 val_db_name: NYUD
-trBatch: 3
+trBatch: 6
 valBatch: 1
 nworkers: 6
 ignore_index: 255
