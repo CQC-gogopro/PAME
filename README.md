@@ -22,21 +22,23 @@ wget https://data.vision.ee.ethz.ch/brdavid/atrc/PASCALContext.tar.gz
 tar xfvz NYUDv2.tar.gz
 ```
 
-**Attention**: you need to specify the root directory of your own datasets as ```db_root``` variable in ```configs/mypath.py```.
-You need to set the ```db_root``` variable in ```./configs/mypath.py``` to the root path of all your datasets, with the DATASET_ROOT folder formatted as follows:
+**Attention**: You need to set the ```db_root``` variable in ```./configs/mypath.py``` to the root path of all your datasets, with the DATASET_ROOT folder formatted as follows:
 ```
 DATASET_ROOT
 ├── NYUDv2
 └── PASCALContext
 ```
 
+
+
 ## 3. Evaluate the model
+Our trained PAME model can be obtained [here](https://hkustconnect-my.sharepoi)
 ```
-wget https://data.vision.ee.ethz.ch/brdavid/atrc/PASCALContext.tar.gz
-tar xfvz NYUDv2.tar.gz
+bash ./script/test_PAME_pascal.sh
 ```
 
 ## 4. Train the model
+The pre-trained backbone model can be obtained [here](https://hkustconnect-my.sharepoint)
 ```
-wget https://data.vision.ee.ethz.ch/brdavid/atrc/PASCALContext.tar.gz
+bash ./script/train_PAME_pascal.sh
 ```
