@@ -38,7 +38,6 @@ bash ./script/test_PAME_pascal.sh
 ```
 
 ## 4. Train the model
-The pre-trained backbone model can be obtained [here](https://hkustconnect-my.sharepoint)
 ```
 bash ./script/train_PAME_pascal.sh
 ```
