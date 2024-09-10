@@ -32,7 +32,7 @@ DATASET_ROOT
 
 
 ## 3. Evaluate the model
-Our trained PAME model can be obtained [here](https://hkustconnect-my.sharepoi)
+Our trained PAME model can be obtained [here](https://drive.google.com/file/d/1mb07S3Ox85fF0_dUwleDiN7fkjqUmdIN/view?usp=drive_link)
 ```
 bash ./script/test_PAME_pascal.sh
 ```
